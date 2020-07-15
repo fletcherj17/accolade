@@ -34,7 +34,7 @@ app.use(
 
 //root routes
 app.get("/", function (req, res) {
-    res.render("index");
+    res.render("index", {message: ''});
 });
 
 //bind server

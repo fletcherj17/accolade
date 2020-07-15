@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accolade</title>
+</head>
+<body>
+    <nav>
+        <div id='logo'>
+        </div>
+        <div id='nav-menu'>
+        </div>
+    </nav>
+    <h2>Log-In</h2>
+    <form action="/login" method="POST">
+        <p>Email: <input type="email" name="email" placeholder="example@youremail.com" required id="login-email"></p>
+        <p>Password: <input type="password" name="password" placeholder="Password" required id="login-pwd"></p>
+        <% if (message) { %>
+            <p class="user-message"><%= message%></p>
+            <% } %>
+        <p><input class="button" type="submit" value="Log-in" id="login-submit"></p>
+        </form>
+
+    <h2>Create New Account</h2>
+    <form action="/signup" method="POST">
+        <p>Name: <input type="text" name="name" placeholder="John D." required></p>
+        <p>Email: <input type="email" name="email" placeholder="example@youremail.com" required></p>
+        <p>Password: <input type="password" name="password" placeholder="Password" required></p>
+        <% if (message) { %>
+            <p class="user-message"><%= message.split('/ ')[0]%><a href="/login"><%= message.split('/ ')[1]%></a></p>
+            <% } %>
+        <p><input class="button" type="submit" value="Create Account"></p>
+    </form>
+
+    <form action="">
+    </form>
+
+    <form action="">
+    </form>
+
+    <div class="info-section">
+    </div>
+    <div class="info-section">
+    </div>
+    <div class="info-section">
+    </div>
+    <div class="info-section">
+    </div>
+
+</body>
+</html>

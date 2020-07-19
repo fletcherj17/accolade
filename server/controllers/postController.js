@@ -38,3 +38,42 @@ exports.getPosts = async (req, res) => {
         res.status(500).send('There was an error, try it again');
     }
 }
+
+// Update an post
+exports.updatePost = async (req, res) => {
+
+    // Check errors
+    const errors = validationResult(req);
+    if( !errors.isEmpty() ) {
+        return res.status(400).json({errors: errors.array() })
+    }
+
+    // post info
+    //const { title, city, type, details, date} = req.body;
+    const newPost = (req.body);
+
+    try {
+
+        // check ID
+        let post = await Post.findById(req.params.id);
+
+        // check if post exists
+        if(!post) {
+            return res.status(404).json({msg: 'Post not found'})
+        }
+
+        // verify post's creator
+        if(post.creator.toString() !== req.user.id ) {
+            return res.status(401).json({msg: 'Unauthorized'});
+        }
+
+        // update
+        post = await Post.findByIdAndUpdate({ _id: req.params.id }, { $set : newPost}, { new: true });
+
+        res.json({post});
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Server error');
+    }
+}

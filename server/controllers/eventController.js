@@ -75,3 +75,29 @@ exports.updateEvent = async (req, res) => {
         res.status(500).send('Server error');
     }
 }
+
+// Delete event
+exports.deleteEvent = async (req, res ) => {
+    try {
+        // check ID 
+        let event = await Event.findById(req.params.id);
+
+        // check if event exists or not
+        if(!event) {
+            return res.status(404).json({msg: 'Event not found'})
+        }
+
+        // verify event's creator
+        if(event.creator.toString() !== req.user.id ) {
+            return res.status(401).json({msg: 'Unauthorized'});
+        }
+
+        // delete
+        await Event.findOneAndRemove({ _id : req.params.id });
+        res.json({ msg: 'Event deleted '})
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Server error')
+    }
+}

@@ -25,3 +25,14 @@ exports.createEvent = async (req, res, next) => {
         res.status(500).send('There was an error, try it again');
     }
 }
+
+// Get user's events
+exports.getEvents = async (req, res) => {
+    try {
+        const events = await Event.find().sort({ date: -1 });
+        res.json({ events });
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('There was an error, try it again');
+    }
+} 

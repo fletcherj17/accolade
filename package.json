@@ -7,8 +7,8 @@
   "dev": "nodemon ./index.js",
   "start": "node ./index.js"
 },
-"author": "sofia rodriguez",
-"license": "ISC",
+"author": "Fletcher Jones",
+"license": "MIT",
 "description": "An app for creatives to connect!",
 "dependencies": {
   "bcryptjs": "^2.4.3",

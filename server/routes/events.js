@@ -35,3 +35,11 @@ router.put('/:id',
     ],
     eventController.updateEvent
 );
+
+// Delete a event
+router.delete('/:id', 
+    auth,
+    eventController.deleteEvent
+);
+
+module.exports = router;

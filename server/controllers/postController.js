@@ -77,3 +77,29 @@ exports.updatePost = async (req, res) => {
         res.status(500).send('Server error');
     }
 }
+
+// Delete post
+exports.deletePost = async (req, res ) => {
+    try {
+        // check ID 
+        let post = await Post.findById(req.params.id);
+
+        // check if post exists or not
+        if(!post) {
+            return res.status(404).json({msg: 'Post not found'})
+        }
+
+        // verify post's creator
+        if(post.creator.toString() !== req.user.id ) {
+            return res.status(401).json({msg: 'Unauthorized'});
+        }
+
+        // delete
+        await Post.findOneAndRemove({ _id : req.params.id });
+        res.json({ msg: 'Post deleted '})
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Server error')
+    }
+}

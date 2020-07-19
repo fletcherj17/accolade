@@ -34,3 +34,11 @@ router.put('/:id',
     ],
     postController.updatePost
 );
+
+// Delete a post
+router.delete('/:id', 
+    auth,
+    postController.deletePost
+);
+
+module.exports = router;

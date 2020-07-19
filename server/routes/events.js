@@ -16,3 +16,21 @@ router.post('/',
     ],
     postController.createPost
 );
+
+// Get posts
+router.get('/', 
+    auth,
+    postController.getPosts
+)
+
+// Update posts via ID 
+router.put('/:id', 
+    auth,
+    [
+        check('title', 'The post needs a title').not().isEmpty(),
+        check('type', 'Please select a type').not().isEmpty(),
+        check('details', 'Please enter details').not().isEmpty(),
+        check('city', 'Please select a city').not().isEmpty()
+    ],
+    postController.updatePost
+);

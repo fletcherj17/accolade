@@ -17,3 +17,9 @@ router.post('/',
     ],
     eventController.createEvent
 );
+
+// Get events
+router.get('/', 
+    auth,
+    eventController.getEvents
+)

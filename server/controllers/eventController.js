@@ -36,3 +36,42 @@ exports.getEvents = async (req, res) => {
         res.status(500).send('There was an error, try it again');
     }
 } 
+
+// Update an event
+exports.updateEvent = async (req, res) => {
+
+    // Check errors
+    const errors = validationResult(req);
+    if( !errors.isEmpty() ) {
+        return res.status(400).json({errors: errors.array() })
+    }
+
+    // event info
+    //const { title, city, type, details, date} = req.body;
+    const newEvent = (req.body);
+
+    try {
+
+        // check ID
+        let event = await Event.findById(req.params.id);
+
+        // check if event exists
+        if(!event) {
+            return res.status(404).json({msg: 'Event not found'})
+        }
+
+        // verify event's creator
+        if(event.creator.toString() !== req.user.id ) {
+            return res.status(401).json({msg: 'Unauthorized'});
+        }
+
+        // update
+        event = await Event.findByIdAndUpdate({ _id: req.params.id }, { $set : newEvent}, { new: true });
+
+        res.json({event});
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Server error');
+    }
+}

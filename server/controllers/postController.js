@@ -27,3 +27,14 @@ exports.createPost = async (req, res) => {
         res.status(500).send('There was an error, try it again');
     }
 }
+
+// Get user's posts
+exports.getPosts = async (req, res) => {
+    try {
+        const posts = await Post.find().sort({ date: -1 });
+        res.json({ posts });
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('There was an error, try it again');
+    }
+}

@@ -1,32 +1,27 @@
 {
-  "name": "accolade",
-  "version": "1.0.0",
-  "description": "An app for creatives to connect!",
-  "main": "server.js",
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.19.0",
-    "connect-mongo": "^3.2.0",
-    "connect-mongostore": "^0.1.4",
-    "ejs": "^3.1.3",
-    "express": "^4.17.1",
-    "express-session": "^1.17.1",
-    "method-override": "^3.0.0",
-    "mongoose": "^5.9.16"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fletcherj17/accolade.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/fletcherj17/accolade/issues"
-  },
-  "homepage": "https://github.com/fletcherj17/accolade#readme"
+"name": "accolade",
+"version": "1.0.0",
+"main": "index.js",
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "dev": "nodemon ./index.js",
+  "start": "node ./index.js"
+},
+"author": "sofia rodriguez",
+"license": "ISC",
+"description": "An app for creatives to connect!",
+"dependencies": {
+  "bcryptjs": "^2.4.3",
+  "cors": "^2.8.5",
+  "dotenv": "^8.2.0",
+  "express": "^4.17.1",
+  "express-validator": "^6.6.0",
+  "jsonwebtoken": "^8.5.1",
+  "mongoose": "^5.9.24",
+  "nodemon": "^2.0.4"
+},
+"engines": {
+  "node": "12.16.1"
 }
+}
+

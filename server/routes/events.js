@@ -23,3 +23,15 @@ router.get('/',
     auth,
     eventController.getEvents
 )
+
+// Update events via ID 
+router.put('/:id', 
+    auth,
+    [
+        check('title', 'The event needs a title').not().isEmpty(),
+        check('type', 'Please select a type').not().isEmpty(),
+        check('details', 'Please enter details').not().isEmpty(),
+        check('city', 'Please select a city').not().isEmpty()
+    ],
+    eventController.updateEvent
+);

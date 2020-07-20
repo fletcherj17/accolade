@@ -61,7 +61,7 @@ exports.updateEvent = async (req, res) => {
         }
 
         // verify event's creator
-        if(event.creator.toString() !== req.user.id ) {
+        if(event.creator.toString() !== req.user.user.id ) {
             return res.status(401).json({msg: 'Unauthorized'});
         }
 
@@ -88,7 +88,7 @@ exports.deleteEvent = async (req, res ) => {
         }
 
         // verify event's creator
-        if(event.creator.toString() !== req.user.id ) {
+        if(event.creator.toString() !== req.user.user.id ) {
             return res.status(401).json({msg: 'Unauthorized'});
         }
 

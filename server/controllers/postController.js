@@ -16,7 +16,7 @@ exports.createPost = async (req, res) => {
         const post = new Post(req.body);
 
         // Save the Creator via JWT
-        post.creator = req.user.id;
+        post.creator = req.user.user.id;
 
         // save post
         post.save();
@@ -63,7 +63,7 @@ exports.updatePost = async (req, res) => {
         }
 
         // verify post's creator
-        if(post.creator.toString() !== req.user.id ) {
+        if(post.creator.toString() !== req.user.user.id ) {
             return res.status(401).json({msg: 'Unauthorized'});
         }
 
@@ -90,7 +90,7 @@ exports.deletePost = async (req, res ) => {
         }
 
         // verify post's creator
-        if(post.creator.toString() !== req.user.id ) {
+        if(post.creator.toString() !== req.user.user.id ) {
             return res.status(401).json({msg: 'Unauthorized'});
         }
 

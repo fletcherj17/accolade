@@ -21,7 +21,7 @@ const port = process.env.PORT || 4000;
 app.use('/api/users', require('./routes/users'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/posts', require('./routes/posts'));
-app.use('/api/events', require('./routes/events'));
+app.use('/api/events', require('./routes/posts'));
 
 // Start app
 app.listen(port, '0.0.0.0', () => {

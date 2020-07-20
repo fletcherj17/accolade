@@ -1,27 +1,26 @@
 {
-"name": "accolade",
-"version": "1.0.0",
-"main": "index.js",
-"scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "dev": "nodemon ./index.js",
-  "start": "node ./index.js"
-},
-"author": "Fletcher Jones",
-"license": "MIT",
-"description": "An app for creatives to connect!",
-"dependencies": {
-  "bcryptjs": "^2.4.3",
-  "cors": "^2.8.5",
-  "dotenv": "^8.2.0",
-  "express": "^4.17.1",
-  "express-validator": "^6.6.0",
-  "jsonwebtoken": "^8.5.1",
-  "mongoose": "^5.9.24",
-  "nodemon": "^2.0.4"
-},
-"engines": {
-  "node": "12.16.1"
+  "name": "accolade",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./index.js",
+    "start": "node ./index.js"
+  },
+  "author": "Fletcher Jones",
+  "license": "MIT",
+  "description": "An app for creatives to connect!",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.24",
+    "nodemon": "^2.0.4"
+  },
+  "engines": {
+    "node": "12.16.1"
+  }
 }
-}
-

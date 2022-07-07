@@ -10,7 +10,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "formik": "^2.1.5",
-    "moment": "^2.27.0",
+    "moment": "^2.29.4",
     "next": "9.4.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
